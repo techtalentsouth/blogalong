@@ -1,0 +1,24 @@
+<h1 align="center">Listing blogs</h1>
+
+<div class="blog-table-container">
+
+  <div><%= link_to 'New Blog', new_blog_path %></div>
+    <br>
+    <% @blogs.each do |blog| %>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <td colspan=3><b><%= blog.title %></b></td>
+        </tr>
+        <tr>
+          <td><%= blog.blog_text %></td>
+        </tr>
+        <tr>
+          <td class="info" colspan=3><%= link_to 'View', blog %> |
+            <%= link_to 'Edit', edit_blog_path(blog) %> |
+            <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    
+<div>
